@@ -5,9 +5,8 @@
  _Deep Dark Fantasies_
 
 ```
-  raison d'etre for this insane degenerative garbage:
-  if you have to store 1000+ unique keys,
-  you don't have to parse whole json array to check one value
+  raison d'etre:
+  civilized way to store and access keys in localStorage
 ```
 ## How to use
 ```
