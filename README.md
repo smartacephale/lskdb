@@ -11,7 +11,7 @@ npm i lskdb
 ```
 
 ```
-<script src="https://unpkg.com/lskdb.umd.js"></script>
+<script src="https://unpkg.com/lskdb@latest/dist/lskdb.umd.js"></script>
 ...
 const { LSKDB } = window.lskdb;
 ```
