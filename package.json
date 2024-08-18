@@ -1,0 +1,38 @@
+{
+  "name": "lskdb",
+  "description": "Local Storage Key DB",
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": ["localStorage", "db", "typescript"],
+  "author": "smartacephale atm.mormon@protonmail.com (https://github.com/smartacephale)",
+  "homepage": "https://github.com/smartacephale/lskdb#readme",
+  "type": "module",
+  "main": "dist/lskdb.umd.js",
+  "module": "dist/lskdb.es.js",
+  "types": "dist/index.d.ts",
+  "repository": "github:smartacephale/lskdb",
+  "bugs": {
+    "url": "https://github.com/smartacephale/lskdb/issues",
+    "email": "atm.mormon@protonmail.com"
+  },
+  "browser": "dist/lskdb.es.js",
+  "unpkg": "dist/lskdb.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/lskdb.es.js",
+      "require": "./dist/lskdb.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["src/**/*", "dist/**/*"],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0",
+    "vite-plugin-dts": "^4.0.3"
+  }
+}
