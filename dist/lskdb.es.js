@@ -3,34 +3,39 @@ class LSKDB {
     this.prefix = prefix;
     this.lockKey = lockKey;
   }
+  prefixedKey(key) {
+    return `${this.prefix}${key}`;
+  }
   getAllKeys() {
     const res = [];
     for (const key in localStorage) {
       if (key.startsWith(this.prefix)) {
-        res.push(key);
+        res.push(key.slice(this.prefix.length));
       }
     }
-    return res.map((r) => r.slice(this.prefix.length));
+    return res;
   }
   getKeys(n = 12, remove = true) {
     const res = [];
     for (const key in localStorage) {
       if (res.length >= n) break;
       if (key.startsWith(this.prefix)) {
-        res.push(key);
+        res.push(key.slice(this.prefix.length));
       }
     }
-    if (remove) res.forEach((k) => localStorage.removeItem(k));
-    return res.map((r) => r.slice(this.prefix.length));
+    if (remove) {
+      res.forEach((k) => this.removeKey(k));
+    }
+    return res;
   }
   hasKey(key) {
-    return Object.hasOwn(localStorage, `${this.prefix}${key}`);
+    return localStorage.getItem(this.prefixedKey(key)) !== null;
   }
   removeKey(key) {
-    localStorage.removeItem(`${this.prefix}${key}`);
+    localStorage.removeItem(this.prefixedKey(key));
   }
   setKey(key) {
-    localStorage.setItem(`${this.prefix}${key}`, "");
+    localStorage.setItem(this.prefixedKey(key), "");
   }
   isLocked() {
     const lock = parseInt(localStorage.getItem(this.lockKey));
